@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import SoundManager from './SoundManager';
 
 function App() {
   return (
@@ -10,14 +11,11 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={() => SoundManager.play('jump')}>Play jump</button>
+        <button onClick={() => SoundManager.play('walk')}>Play walk</button>
+        <button onClick={() => SoundManager.startBgMusic()}>Play BG music</button>
+        <button onClick={() => SoundManager.pauseBgMusic()}>Pause BG music</button>
+        <button onClick={() => SoundManager.replayBGMusic()}>REplay BG music</button>
       </header>
     </div>
   );
