@@ -1,14 +1,20 @@
 
 
+const SOUND_CONFIG = {
+  walk:  'jump.wav',
+  jump: 'jump.flac',
+  bg: 'abeth.wav',
+};
 
 class SoundManager {
   sounds = {};
   bgMusicPlayed = false;
+  muted = false;
 
   constructor() {
-    this.sounds['walk']  = new Audio('jump.wav');
-    this.sounds['jump'] = new Audio('jump.flac')
-    this.sounds['bgMusic'] = new Audio('abeth.wav');
+    this.sounds['walk']  = new Audio(SOUND_CONFIG['walk']);
+    this.sounds['jump'] = new Audio(SOUND_CONFIG['jump']);
+    this.sounds['bgMusic'] = new Audio(SOUND_CONFIG['bg']);
   }
 
   play(soundName) {
@@ -32,6 +38,14 @@ class SoundManager {
   replayBGMusic() {
     this.sounds['bgMusic'].currentTime = 0;
     this.startBgMusic();
+  }
+
+  muteOrUnmute() {
+    const soundsKey = Object.keys(this.sounds);
+    soundsKey.forEach((key => {
+       this.sounds[key].muted  = !this.muted;
+    }));
+    this.muted = !this.muted;
   }
 }
 

@@ -1,6 +1,5 @@
 {
   "name": "test-sound",
-  "homepage": "/test-sound",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
